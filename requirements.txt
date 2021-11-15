@@ -1,0 +1,16 @@
+Infrastructure @ git+git://github.com/aviz92/Infrastructure@master
+setuptools~=54.2.0
+goprocam~=4.1.0
+pandas~=1.2.3
+future~=0.18.2
+opencv-python~=4.5.1.48
+mediapipe~=0.8.6
+numpy~=1.19.5
+comtypes~=1.1.10
+pygame~=2.0.1
+termcolor~=1.1.0
+PyYAML~=5.4.1
+yfinance~=0.1.64
+pyTelegramBotAPI~=3.7.7
+Infrastructure~=1.0.0
+tabulate~=0.8.9

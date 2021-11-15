@@ -1,0 +1,17 @@
+StartOrStopProcess:
+    start_or_stop_process: yes  # yes or no
+
+GlobalConfiguration:
+    server_path: 'C:/Users/azaguri/Desktop/Newfolder'
+    recursive: yes  # yes or no
+    patterns: [csv, txt]  # list of File name extensions
+    only_include_part_name: []  # the process will only work if the file name includes at least one of the names in the list
+    exclude_part_name: [New]  # the process will only work if the file name exclude all the name in the list
+    cycle_interval: 30  # cycle interval in seconds
+
+HowLongBackCheck:
+    always_or_part_time: yes  # yes or no
+#    time_delta_days: 10  # number of days
+    time_delta_days: 0  # number of days
+    time_delta_hours: 0  # number of hours
+    time_delta_minutes: 0  # number of minutes
