@@ -7,4 +7,6 @@ pygame
 termcolor
 PyYAML
 pyTelegramBotAPI~=3.7.7
+python-telegram-bot
 tabulate
+yfinance
