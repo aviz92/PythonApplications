@@ -8,7 +8,7 @@
 
 ------------------------------------------------------------------------------------------------------------------------
 
-## General info:
+## General-info:
 
 This is a personal "PythonApplications" repository that provides small and nice applications in python code.
 
