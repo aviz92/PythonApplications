@@ -103,11 +103,16 @@ How to install LDAP:
 
 
 LDAP from terminal:
------------------
+-------------------
 ldapobj = ldap.initialize("ldap://IPAddress:PORT")
 ldapobj.simple_bind_s(user, password)
 
 ldapobj.search_s("OU=Israel,OU=UsersName,DC=DCName,DC=com", ldap.SCOPE_SUBTREE, "(objectClass=user)")
 
 
+------------------------------------------------------------------------------------------------------------------------
+Convert Images to Ascii:
+------------------------
+
+- https://manytools.org/hacker-tools/convert-images-to-ascii-art/
 ------------------------------------------------------------------------------------------------------------------------
