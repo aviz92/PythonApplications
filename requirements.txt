@@ -10,3 +10,4 @@ pyTelegramBotAPI~=3.7.7
 python-telegram-bot
 tabulate
 yfinance
+pyttsx3==2.7
