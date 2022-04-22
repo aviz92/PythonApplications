@@ -1,4 +1,4 @@
-Infrastructure @ git+git://github.com/aviz92/Infrastructure@master
+Infrastructure @ git+https://github.com/aviz92/Infrastructure@master
 setuptools
 pandas
 opencv-python
