@@ -39,7 +39,7 @@ def financial_stocks_main(symbols_stock_list=None):
     )
     # path = "output\\Financial Stocks.html"
     # fig.write_html(path)
-    path = "output\\Financial Stocks.pdf"
+    path = "output\\Financial Stocks.jpeg"
     fig.write_image(path)
     return path
 
