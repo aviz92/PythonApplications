@@ -1,15 +1,16 @@
 # pip install python-telegram-bot
-from telegram import Update
+from telegram import Update, ParseMode
 from telegram.ext import *
 import Responses
 
 from Infrastructure.Logger_Infrastructure.Projects_Logger import BuildLogger, print_before_logger
-
+from PythonApplications.TelegramBot.TelegramBotUserDetails import TelegramBotUserDetails
 
 PROJECT_NAME = 'Telegram Bot'
 SITE = ''
 
 API_KEY = '2142997401:AAELi6adP_gxfgcRarNtDsM1Maoi3uLs4AA'
+USER_DETAILS = {}
 
 
 def start_command(update: Update, context: CallbackContext) -> None:
@@ -19,8 +20,12 @@ def start_command(update: Update, context: CallbackContext) -> None:
         "Hello, this is Bot that can answer for sample and complex responses\n\n"
         "Use /help to get help from the bot\n"
         "Use /clear to clear the stored data so that you can see\n"
-        "Use /examples to get sample and complex responses\n"
+        "Use /examples to get sample and complex responses\n\n"
     )
+
+    if not USER_DETAILS.get(update.effective_user.id):
+        USER_DETAILS[update.effective_user.id] = TelegramBotUserDetails()
+        update.message.reply_text("What is your first name?\n")
 
 
 def help_command(update: Update, context: CallbackContext) -> None:
@@ -35,6 +40,7 @@ def help_command(update: Update, context: CallbackContext) -> None:
 
 def clear_command(update: Update, context: CallbackContext) -> None:
     """ Clears the callback data cache """
+    del USER_DETAILS[update.effective_user.id]
 
     context.bot.callback_data_cache.clear_callback_data()  # type: ignore[attr-defined]
     context.bot.callback_data_cache.clear_callback_queries()  # type: ignore[attr-defined]
@@ -56,19 +62,18 @@ def examples_command(update: Update, context: CallbackContext) -> None:
 
 def handle_message(update: Update, context: CallbackContext) -> None:
     text = str(update.message.text).lower()
-    flag_response = False
 
-    response = Responses.sample_responses(text)
-    if response:
-        flag_response = True
+    if (
+            (response := Responses.sample_user_details(USER_DETAILS[update.effective_user.id], text))
+            or (response := Responses.sample_responses(text))
+            or not (response := Responses.sample_responses(text))
+            and (response := Responses.complex_responses_str(text, update))
+    ):
         update.message.reply_text(response)
-
-    response = Responses.complex_responses(text, update)
-    if response:
-        flag_response = True
-        update.message.reply_text(response)
-
-    if not flag_response:
+    elif response := Responses.complex_responses_img(text, update):
+        update.message.bot.send_photo(chat_id=update.message.chat.id, photo=open(response, 'rb'))
+        # update.message.bot.sendDocument(chat_id=update.message.chat.id, document=open(response, 'rb'))
+    else:
         update.message.reply_text(
             "I don't understand you.\n\n"
             "Use /start to test this bot.\n"
