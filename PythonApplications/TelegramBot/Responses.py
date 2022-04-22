@@ -57,7 +57,10 @@ def complex_responses_img(input_text: str, update: Update) -> Union[str, None]:
 
         stocks = re.sub(r'i want stock data for ', '', user_massage.lower())
         stocks = re.sub(r'i want stock data', '', stocks)
-        stock_list = stocks.split(', ') if len(stocks.split(', ')) > 1 else []
+        if stocks:
+            stock_list = stocks.split(', ')
+        else:
+            stock_list = []
         return financial_stocks_main(stock_list)
         # return StockData().get_stocks(stocks=stock_list)
 
