@@ -1,4 +1,5 @@
-Infrastructure @ git+https://github.com/aviz92/Infrastructure@master
+Infrastructure @ git+https://${PIP_TOKEN}@github.com/aviz92/Infrastructure.git
+
 setuptools
 pandas
 opencv-python
