@@ -5,6 +5,7 @@ import Responses
 
 from Infrastructure.Logger_Infrastructure.Projects_Logger import BuildLogger, print_before_logger
 from PythonApplications.TelegramBot.TelegramBotUserDetails import TelegramBotUserDetails
+from dataclasses import dataclass
 
 PROJECT_NAME = 'Telegram Bot'
 SITE = ''
@@ -13,14 +14,25 @@ API_KEY = '2142997401:AAELi6adP_gxfgcRarNtDsM1Maoi3uLs4AA'
 USER_DETAILS = {}
 
 
+@dataclass()
+class ReturnFunctionDetailsString:
+    start = "Use /start to test this bot."
+    help = 'Use /help to get help from the bot.'
+    clear = 'Use /clear to clear the stored data so that you can see.'
+    examples = 'Use /examples to get sample and complex responses.'
+    get_default_stacks = 'Use /get_default_stacks to get default stacks.'
+    get_specific_stacks = 'Use /get_specific_stacks to get default stacks.'
+
+
 def start_command(update: Update, context: CallbackContext) -> None:
     """Sends a start message."""
 
     update.message.reply_text(
-        "Hello, this is Bot that can answer for sample and complex responses\n\n"
-        "Use /help to get help from the bot\n"
-        "Use /clear to clear the stored data so that you can see\n"
-        "Use /examples to get sample and complex responses\n\n"
+        f"Hello, this is Bot that can answer for sample and complex responses\n\n"
+        f"{ReturnFunctionDetailsString.help}\n"
+        f"{ReturnFunctionDetailsString.clear}\n"
+        f"{ReturnFunctionDetailsString.examples}\n\n"
+        # f"{ReturnFunctionDetailsString.get_default_stacks}\n\n"
     )
 
     if not USER_DETAILS.get(update.effective_user.id):
@@ -32,9 +44,11 @@ def help_command(update: Update, context: CallbackContext) -> None:
     """ Displays info on how to use the bot. """
 
     update.message.reply_text(
-        "Use /start to test this bot.\n"
-        "Use /clear to clear the stored data so that you can see\n"
-        "Use /examples to get sample and complex responses\n"
+        f"{ReturnFunctionDetailsString.start}.\n"
+        f"{ReturnFunctionDetailsString.clear}\n"
+        f"{ReturnFunctionDetailsString.examples}\n"
+        f"{ReturnFunctionDetailsString.get_default_stacks}\n"
+        f"{ReturnFunctionDetailsString.get_specific_stacks}\n\n"
     )
 
 
@@ -46,8 +60,9 @@ def clear_command(update: Update, context: CallbackContext) -> None:
     context.bot.callback_data_cache.clear_callback_queries()  # type: ignore[attr-defined]
     update.effective_message.reply_text(
         "All clear!\n"
-        "Use /start to test this bot.\n"
-        "Use /examples to get sample and complex responses\n"
+        f"{ReturnFunctionDetailsString.start}\n"
+        f"{ReturnFunctionDetailsString.help}\n"
+        f"{ReturnFunctionDetailsString.examples}\n"
     )
 
 
@@ -57,6 +72,21 @@ def examples_command(update: Update, context: CallbackContext) -> None:
     update.message.reply_text(
         'For sample responses use can send "hi", "hello" or ask "who are you?".\n'
         'For complex responses use can ask "what is the time?" or send "I want stock data".\n'
+    )
+
+
+def get_default_stacks(update: Update, context: CallbackContext) -> None:
+    """ Clears the callback data cache """
+    response = Responses.get_default_stacks_responses(user_details=USER_DETAILS[update.effective_user.id], update=update)
+    update.message.bot.send_photo(chat_id=update.message.chat.id, photo=open(response, 'rb'))
+    # update.message.bot.sendDocument(chat_id=update.message.chat.id, document=open(response, 'rb'))
+
+
+def get_specific_stacks(update: Update, context: CallbackContext) -> None:
+    """ Clears the callback data cache """
+    update.message.reply_text(
+        'What is your stacks?\n'
+        'Please send "My stacks is: stack_1, stack_2\n'
     )
 
 
@@ -76,10 +106,10 @@ def handle_message(update: Update, context: CallbackContext) -> None:
     else:
         update.message.reply_text(
             "I don't understand you.\n\n"
-            "Use /start to test this bot.\n"
-            "Use /help to get help from the bot\n"
-            "Use /clear to clear the stored data so that you can see\n"
-            "Use /examples to get sample and complex responses\n"
+            f"{ReturnFunctionDetailsString.start}\n"
+            f"{ReturnFunctionDetailsString.help}\n"
+            f"{ReturnFunctionDetailsString.clear}\n"
+            f"{ReturnFunctionDetailsString.examples}\n"
         )
 
 
@@ -94,6 +124,8 @@ def main():
     updater.dispatcher.add_handler(CommandHandler("help", help_command))
     updater.dispatcher.add_handler(CommandHandler('clear', clear_command))
     updater.dispatcher.add_handler(CommandHandler('examples', examples_command))
+    updater.dispatcher.add_handler(CommandHandler('get_default_stacks', get_default_stacks))
+    updater.dispatcher.add_handler(CommandHandler('get_specific_stacks', get_specific_stacks))
 
     updater.dispatcher.add_handler(MessageHandler(Filters.text, handle_message))
 
