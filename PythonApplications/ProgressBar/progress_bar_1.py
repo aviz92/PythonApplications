@@ -5,6 +5,7 @@ import math
 def progress_bar(progress, total):
     percent = 100 * (progress / float(total))
     bar = '#' * int(percent) + '-' * int(100 - int(percent))
+    bar = '█' * int(percent) + '-' * int(100 - int(percent))
     print(f"\rl{bar}| {percent:.2f}%", end="\r")
 
 
