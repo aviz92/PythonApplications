@@ -6,7 +6,7 @@ from tabulate import tabulate
 
 class StockData:
     def __init__(self):
-        self.logger = logging.getLogger('Infrastructure.Logger_Infrastructure.Projects_Logger.' + self.__class__.__name__)
+        self.logger = logging.getLogger(f'PrivateInfrastructure.Logger_Infrastructure.Projects_Logger.{self.__class__.__name__}')
 
         self.stocks = ['MIMO', 'BTC-USD', 'MSFT', 'AAPL', 'FB', 'TWTR', 'WIX']
 

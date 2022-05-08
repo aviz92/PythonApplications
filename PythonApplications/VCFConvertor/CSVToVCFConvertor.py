@@ -15,8 +15,7 @@ from PrivateInfrastructure.Logger_Infrastructure.Projects_Logger import Projects
 
 class CSVToVCFConvertorClass:
     def __init__(self):
-        self.logger = \
-            logging.getLogger('Infrastructure.Logger_Infrastructure.Projects_Logger.' + self.__class__.__name__)
+        self.logger = logging.getLogger(f'PrivateInfrastructure.Logger_Infrastructure.Projects_Logger.{self.__class__.__name__}')
 
     def csv_to_vcf_convertor(self, path_to_save):
         try:

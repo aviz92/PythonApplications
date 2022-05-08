@@ -9,8 +9,7 @@ from PrivateInfrastructure.Files_Infrastructure.Folders.Path_folders_Infrastruct
 class PhoneDatabaseClass:
 
     def __init__(self):
-        self.logger = \
-            logging.getLogger('Infrastructure.Logger_Infrastructure.Projects_Logger.' + self.__class__.__name__)
+        self.logger = logging.getLogger(f'PrivateInfrastructure.Logger_Infrastructure.Projects_Logger.{self.__class__.__name__}')
 
     def phone_database_creator(self, user_domain, admin_mode):
         database_name = PathFoldersClass().return_to_username_path()

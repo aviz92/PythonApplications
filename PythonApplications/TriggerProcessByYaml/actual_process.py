@@ -6,8 +6,7 @@ from datetime import datetime, timedelta
 
 class ProcessClass:
     def __init__(self, **kwargs):
-        self.logger = \
-            logging.getLogger('Infrastructure.Logger_Infrastructure.Projects_Logger.' + self.__class__.__name__)
+        self.logger = logging.getLogger(f'PrivateInfrastructure.Logger_Infrastructure.Projects_Logger.{self.__class__.__name__}')
 
         self.server_path = kwargs.get('server_path')
         self.recursive = kwargs.get('recursive')
