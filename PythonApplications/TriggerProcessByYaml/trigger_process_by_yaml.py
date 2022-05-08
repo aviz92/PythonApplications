@@ -2,7 +2,7 @@ import os
 import time
 import yaml
 
-from Infrastructure.Logger_Infrastructure.Projects_Logger import ProjectsLogging
+from PrivateInfrastructure.Logger_Infrastructure.Projects_Logger import ProjectsLogging
 from PythonApplications.TriggerProcessByYaml.actual_process import ProcessClass
 
 PROJECT_NAME = "Deleter"

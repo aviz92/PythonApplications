@@ -11,10 +11,10 @@ import socket
 import datetime
 import re
 
-from Infrastructure.Network_Infrastructure.Socket_Infrastructure import SocketConnectionClass
-from Infrastructure.Files_Infrastructure.Folders.Path_folders_Infrastructure import GeneralFolderActionClass
+from PrivateInfrastructure.Network_Infrastructure.Socket_Infrastructure import SocketConnectionClass
+from PrivateInfrastructure.Files_Infrastructure.Folders.Path_folders_Infrastructure import GeneralFolderActionClass
 
-from Infrastructure.Logger_Infrastructure.Projects_Logger import ProjectsLogging
+from PrivateInfrastructure.Logger_Infrastructure.Projects_Logger import ProjectsLogging
 
 
 def write_to_file(data_string):

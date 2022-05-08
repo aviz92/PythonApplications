@@ -3,7 +3,7 @@ from telegram import Update, ParseMode
 from telegram.ext import *
 import Responses
 
-from Infrastructure.Logger_Infrastructure.Projects_Logger import BuildLogger, print_before_logger
+from PrivateInfrastructure.Logger_Infrastructure.Projects_Logger import BuildLogger, print_before_logger
 from PythonApplications.TelegramBot.TelegramBotUserDetails import TelegramBotUserDetails
 from dataclasses import dataclass
 

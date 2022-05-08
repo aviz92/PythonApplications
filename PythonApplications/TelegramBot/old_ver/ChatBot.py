@@ -1,7 +1,7 @@
 import telebot
 import yfinance as yf
 
-from Infrastructure.Logger_Infrastructure.Projects_Logger import BuildLogger, print_before_logger
+from PrivateInfrastructure.Logger_Infrastructure.Projects_Logger import BuildLogger, print_before_logger
 
 from PythonApplications.TelegramBot.old_ver.ChatBotDetails import ChatBotDetails
 

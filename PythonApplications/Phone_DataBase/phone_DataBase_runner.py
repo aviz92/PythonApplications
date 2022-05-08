@@ -9,8 +9,8 @@ version: 1.0
 import threading
 
 from PythonApplications.Phone_DataBase.frontend import PhoneDatabaseClass
-from Infrastructure.Login.Login_Infrastructure import LogInApplicationClass
-from Infrastructure.Logger_Infrastructure.Projects_Logger import ProjectsLogging
+from PrivateInfrastructure.Login.Login_Infrastructure import LogInApplicationClass
+from PrivateInfrastructure.Logger_Infrastructure.Projects_Logger import ProjectsLogging
 
 
 # username_guest_ = ['Administrator', 'gust']

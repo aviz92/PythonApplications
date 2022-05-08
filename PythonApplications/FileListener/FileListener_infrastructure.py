@@ -6,8 +6,8 @@ from datetime import timedelta
 import csv
 import pandas as pd
 
-from Infrastructure.Files_Infrastructure.Folders.Path_folders_Infrastructure import GeneralFolderActionClass
-from Infrastructure.Network_Infrastructure.IP_Address_Network_Infrastructure import IPAddressNetworkClass
+from PrivateInfrastructure.Files_Infrastructure.Folders.Path_folders_Infrastructure import GeneralFolderActionClass
+from PrivateInfrastructure.Network_Infrastructure.IP_Address_Network_Infrastructure import IPAddressNetworkClass
 
 
 class FileListener:

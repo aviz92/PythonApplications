@@ -10,8 +10,8 @@ import time
 import socket
 import subprocess
 
-from Infrastructure.Network_Infrastructure.Socket_Infrastructure import SocketConnectionClass
-from Infrastructure.Logger_Infrastructure.Projects_Logger import ProjectsLogging
+from PrivateInfrastructure.Network_Infrastructure.Socket_Infrastructure import SocketConnectionClass
+from PrivateInfrastructure.Logger_Infrastructure.Projects_Logger import ProjectsLogging
 
 
 def send_details(cycle):

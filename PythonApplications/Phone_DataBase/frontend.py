@@ -3,7 +3,7 @@ from tkinter import *
 import datetime
 
 from PythonApplications.Phone_DataBase.backend import Database
-from Infrastructure.Files_Infrastructure.Folders.Path_folders_Infrastructure import PathFoldersClass
+from PrivateInfrastructure.Files_Infrastructure.Folders.Path_folders_Infrastructure import PathFoldersClass
 
 
 class PhoneDatabaseClass:

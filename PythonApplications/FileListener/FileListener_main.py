@@ -1,6 +1,6 @@
 import time
 
-from Infrastructure.Logger_Infrastructure.Projects_Logger import ProjectsLogging
+from PrivateInfrastructure.Logger_Infrastructure.Projects_Logger import ProjectsLogging
 from PythonApplications.FileListener.FileListener_infrastructure import FileListener
 
 # Global configuration

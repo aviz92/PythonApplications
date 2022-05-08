@@ -10,7 +10,7 @@ import sys
 import logging
 import pandas as pd
 
-from Infrastructure.Logger_Infrastructure.Projects_Logger import ProjectsLogging
+from PrivateInfrastructure.Logger_Infrastructure.Projects_Logger import ProjectsLogging
 
 
 class CSVToVCFConvertorClass:
