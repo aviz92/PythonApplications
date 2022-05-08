@@ -1,4 +1,4 @@
-Infrastructure @ git+https://${PIP_TOKEN}@github.com/aviz92/Infrastructure.git
+PrivateInfrastructure @ git+https://${PYCHARM_PIP}@github.com/aviz92/PrivateInfrastructure@main
 
 setuptools
 pandas
