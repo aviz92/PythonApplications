@@ -12,8 +12,7 @@ from PrivateInfrastructure.Network_Infrastructure.IP_Address_Network_Infrastruct
 
 class FileListener:
     def __init__(self, **kwargs):
-        self.logger = \
-            logging.getLogger('InfrastructureSVG.Logger_Infrastructure.Projects_Logger.' + self.__class__.__name__)
+        self.logger = logging.getLogger(f'PrivateInfrastructure.Logger_Infrastructure.Projects_Logger.{self.__class__.__name__}')
 
         self.PATTERNS = kwargs.get('PATTERNS')
         self.HOST_NAME = kwargs.get('HOST_NAME')
